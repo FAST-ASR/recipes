@@ -78,6 +78,8 @@ fi
 
 if [ $stage -le 2 ]; then
     echo "Rescoring lattices."
+    export PATH="$KALDI_ROOT/tools/openfst/bin:$PATH"
+
     mkdir -p ${decode_dir}_lmrescore-fgconst
     lattice-lmrescore --lm-scale=-1.0 \
         "ark:gunzip -c $decode_dir/lat.1.gz |" \
@@ -85,7 +87,7 @@ if [ $stage -le 2 ]; then
     lattice-lmrescore-const-arpa --lm-scale=1.0 ark:- \
         $WSJ_ROOT/data/lang_test_bd_fgconst/G.carpa \
         "ark,t:|gzip -c>${decode_dir}_lmrescore-fgconst/lat.1.gz"
-    
+
     (
         graph=$(realpath $graph)
         decode_dir=$(realpath $decode_dir)
