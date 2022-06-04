@@ -1,7 +1,6 @@
 #!/bin/bash
-
-# Run WSJ experiment with LF-MMI implemented in MarkovModels.jl
 # Author: Martin Kocour (ikocour@fit.vut.cz)
+# Run WSJ experiment with LF-MMI implemented in MarkovModels.jl
 
 # Extract features
 julia --project="./" script/feats_preparation.jl
