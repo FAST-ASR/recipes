@@ -12,3 +12,6 @@ julia --project="./" script/graph_preparation.jl
 julia --project="./" script/model_training.jl
 
 KALDI_ROOT=/path/to/kaldi script/kaldi_decoder.sh --stage -2 # Before, run Kaldi WSJ recipe
+
+# Phone decoder
+julia --project="./" script/phone_decoder.jl

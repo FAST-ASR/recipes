@@ -15,5 +15,11 @@ ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 ShortCodes = "f62ebe17-55c5-4640-972f-b59c0dd11ccf"
 SpeechFeatures = "6f3487c4-5ca2-4050-bfeb-2cf56df92307"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 WAV = "8149f6b0-98f6-5db9-b78f-408fbbb8ef88"
+WordErrorRate = "150a09a7-b056-4ea4-b4c3-781faca6e549"
+
+[compat]
+MarkovModels = "= 0.8.0"
+julia = "1.6"
