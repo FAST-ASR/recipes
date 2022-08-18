@@ -13,7 +13,7 @@
 # We assume the following files to exist:
 #   <dataset.dir>/<dataset.name>/{<dataset.train>,<dataset.dev>}/text
 #   <dataset.dir>/<dataset.name>/lang/{lexicon,units}
-dir = "/path/to/data"
+dir = "/mnt/matylda3/ikocour/SCMR/WSJ_mix/data"
 name = "wsj"
 train = "train_si284"
 dev = "test_dev93"
@@ -35,7 +35,7 @@ dir = "./exp/nnet"
 
 # We assume the following files to exist:
 #   <features.dir>/<dataset.name>/{<dataset.train>,<dataset.dev>,<dataset.test>}/<features.name>.h5
-dir = "/path/to/feats"
+dir = "/mnt/scratch/tmp/ikocour/SCMSR/wsj/feats"
 name = "mfcc_hires_16kHz"
 numfilters = 40
 nceps = 40
