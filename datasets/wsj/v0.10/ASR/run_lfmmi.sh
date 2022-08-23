@@ -175,14 +175,14 @@ if [ ${stage} -le 5 ]; then
     $train_script $train_opts \
       --train data/train_${type}${unit}.json \
       --valid data/valid_${type}${unit}.json \
-      --train-bsz 64 \
+      --train-bsz 32 \
       --valid-bsz 16 \
       --arch $arch \
       --epochs 80 \
       --dropout 0.2 \
       --wd 0.01 \
       --optimizer adam \
-      --lr 0.00002 \
+      --lr 0.0002 \
       --scheduler plateau \
       --gamma 0.5 \
       --hidden-dims 384 384 384 384 384 \
