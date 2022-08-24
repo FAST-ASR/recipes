@@ -16,14 +16,16 @@ from torch.utils.tensorboard import SummaryWriter
 import torch.optim.lr_scheduler as lr_scheduler
 
 from matgraph import (
-    GraphDataset,
-    GraphDataLoader,
-    BucketSampler,
-    BatchFSM,
-    FSM,
+    BatchCompiledFSA,
+    CompiledFSA,
     LFMMILoss,
 )
 from models import get_model
+from dataset import (
+    GraphDataset,
+    GraphDataLoader,
+    BucketSampler,
+)
 
 from pathlib import Path
 
@@ -229,7 +231,7 @@ def main():
     )
 
     # loss
-    den_fst = FSM.from_files(
+    den_fst = CompiledFSA.from_files(
         args.den_fst, str(Path(args.den_fst).with_suffix(".smap"))
     )
     if use_cuda:
@@ -330,8 +332,8 @@ def train(trainloader, model, criterion, optimizer, writer, epoch, use_cuda):
         # measure data loading time
         data_time.update(time.time() - end)
 
-        bfsm = BatchFSM.from_list(
-            [FSM.from_files(f, f.replace(".fsm", ".smap")) for f in graphs]
+        bfsm = BatchCompiledFSA.from_list(
+            [CompiledFSA.from_files(f, f.replace(".fsm", ".smap")) for f in graphs]
         )
         if use_cuda:
             inputs = inputs.cuda()
@@ -394,8 +396,8 @@ def test(testloader, model, criterion, writer, epoch, use_cuda):
         # measure data loading time
         data_time.update(time.time() - end)
 
-        bfsm = BatchFSM.from_list(
-            [FSM.from_files(f, f.replace(".fsm", ".smap")) for f in graphs]
+        bfsm = BatchCompiledFSA.from_list(
+            [CompiledFSA.from_files(f, f.replace(".fsm", ".smap")) for f in graphs]
         )
         if use_cuda:
             inputs = inputs.cuda()

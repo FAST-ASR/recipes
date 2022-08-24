@@ -111,7 +111,7 @@ if [ ${stage} -le 4 ]; then
   train_wav=$rootdir/$train_set/wav.scp
   train_dur=$rootdir/$train_set/utt2dur
   train_feat=$dumpdir/$train_set/$featype/feats.scp
-  train_fst="/mnt/matylda3/ikocour/project/FAST-ASR/recipes/datasets/wsj/v0.10/data/graphs/numfsms/train/fsm.scp"
+  train_fst="/mnt/matylda3/ikocour/project/FAST-ASR/recipes/datasets/wsj/v0.9/data/graphs/numfsms/train/fsm.scp"
   train_text=$rootdir/$train_set/text
   train_ali=""; [ $loss != "chain" ] && train_ali=$ali/$train_set/ali_${type}${unit}.scp
   train_utt2num_frames=$rootdir/$train_set/utt2num_frames
@@ -119,7 +119,7 @@ if [ ${stage} -le 4 ]; then
   valid_wav=$rootdir/$valid_set/wav.scp
   valid_dur=$rootdir/$valid_set/utt2dur
   valid_feat=$dumpdir/$valid_set/$featype/feats.scp
-  valid_fst="/mnt/matylda3/ikocour/project/FAST-ASR/recipes/datasets/wsj/v0.10/data/graphs/numfsms/dev/fsm.scp"
+  valid_fst="/mnt/matylda3/ikocour/project/FAST-ASR/recipes/datasets/wsj/v0.9/data/graphs/numfsms/dev/fsm.scp"
   valid_text=$rootdir/$valid_set/text
   valid_ali=""; [ $loss != "chain" ] && valid_ali=$ali/$valid_set/ali_${type}${unit}.scp
   valid_utt2num_frames=$dumpdir/$valid_set/$featype/utt2num_frames
@@ -166,7 +166,7 @@ if [ ${stage} -le 5 ]; then
     train_script="local/nnet/train_dnn.py --strides 1 1 1 1 1" 
   else
     num_targets=$(cat ../data/graphs/numpdf)
-    train_script="train_lfmmi.py --den-fst /mnt/matylda3/ikocour/project/FAST-ASR/recipes/datasets/wsj/v0.10/data/graphs/denominator.fsm"
+    train_script="train_lfmmi.py --den-fst /mnt/matylda3/ikocour/project/FAST-ASR/recipes/datasets/wsj/v0.9/data/graphs/denominator.fsm"
   fi
 
   set -x
